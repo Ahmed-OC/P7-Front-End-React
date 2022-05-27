@@ -1,0 +1,37 @@
+*{
+    font-family: DM Sans;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+header>a>h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 47px;
+    text-align: center;
+    color: #D04F4F;
+}
+header>a:hover {
+    text-decoration: none;
+}
+.search-bar {
+    height: 70px;
+    background: #E7E7E7;
+    border: none;
+}
+#filters {
+    margin-bottom: 100px;
+}
+.input-group>.input-group-append>.btn {
+    height: 70px;
+    background: #E7E7E7;
+    border: none;
+    color: black;
+    font-size: 30px;
+}
+.search-bar:focus {
+    background: #E7E7E7;
+}
