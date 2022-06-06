@@ -35,3 +35,143 @@ header>a:hover {
 .search-bar:focus {
     background: #E7E7E7;
 }
+button>span{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+.btn {
+    border-radius: 5px;
+}
+.ingredients-btn {
+    height: 70px;
+    width: 170px;
+    background: #3282F7;
+}
+.appliances-btn {
+    height: 70px;
+    width: 170px;
+    background: #68D9A4;
+}
+.ustensils-btn {
+    height: 70px;
+    width: 170px;
+    background: #ED6454;
+}
+.tags-opened{
+    display: none;
+    max-width: 670px;
+    padding: 15px;
+}
+.tags-opened input {
+    width: 100%;
+}
+.tags-opened i {
+    cursor: pointer;
+}
+.tags-opened input::placeholder {
+    color: rgba(255, 255, 255, 0.9);
+}
+.tags-opened input:focus {
+    outline: none;
+}
+.tags-opened .search-line {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ingredients-opened, .ingredients-opened input, .selected-ingredients  {
+    background: #3282F7;
+    border: #3282F7;
+    color: #FFFFFF;
+}
+.appliances-opened, .appliances-opened input, .selected-appliances   {
+    background: #68D9A4;
+    border: #68D9A4;
+    color: #FFFFFF;
+}
+.ustensils-opened, .ustensils-opened input, .selected-ustensils  {
+    background: #ED6454;
+    border: #ED6454;
+    color: #FFFFFF;
+}
+.tags-items{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px
+}
+
+.tags-container{
+    position: absolute;
+    z-index: 1;
+}
+
+.tags-item-name {
+    cursor: pointer;
+}
+.selected-tags-item {
+    height: 40px;
+    border-radius: 5px;
+    padding: 0 5px;
+    display: inline-block;
+}
+.selected-tags-item>div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.delete-tags-item-btn{
+    cursor: pointer;
+}
+.tags-opened-empty{
+    display: none;
+}
+
+.card-empty-img {
+    background: #C7BEBE;
+    min-height: 178px;
+    width: 100%;
+}
+.card .row .col:nth-child(2) {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 100%;
+    color: #000000;
+}
+.card .row .col:first-child {
+
+    font-family: Lato;
+    font-size: 12px;
+    line-height: 14px;
+}
+.time {
+    margin-left: 5px;
+}
+#recipes {
+    display: grid;
+    grid-gap: 2vw;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    grid-auto-columns: 1fr;
+    grid-auto-rows: max-content;
+    margin-top: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.receipt-instructions {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+.card {
+    height: 100%;
+}
