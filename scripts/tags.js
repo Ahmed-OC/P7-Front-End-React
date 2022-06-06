@@ -4,7 +4,12 @@ const closeTagButtons = document.querySelectorAll('.tags-opened i')
 
 
 
-
+// get the search bar input in each tags
+const tagsInput = {
+    ingredients : document.querySelector('.ingredients-opened input'),
+    appliances : document.querySelector('.appliances-opened input'),
+    ustensils : document.querySelector('.ustensils-opened input')
+}
 
 for (let i = 0 ; i < closeTagButtons.length ; i++) {
     const closeTagButton = closeTagButtons[i]
@@ -42,5 +47,5 @@ function closeTag(tag){
     tagToHide.style.display = 'none'
     buttonToShow.style.setProperty('display','block', 'important')
     tagsInput[tag].value = ''
-    hydateTagByText(tag)
+    //hydateTagByText(tag)
 }
