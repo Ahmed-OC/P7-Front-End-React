@@ -17,6 +17,9 @@ const filters = {
 function filterRecipes(research){
     recipesFiltered = new Set(recipes)
     filterByText(research.textInputed.toLowerCase())
+    filterByIngredients(research.ingredients)
+    filterByUstensils(research.ustensils)
+    filterByAppliances(research.appliances)
     recipesSection.innerHTML = ''
     if (!recipesFiltered.size){
         const elt = document.getElementById('empty-recipes-model');
@@ -26,9 +29,9 @@ function filterRecipes(research){
     }
     else {
         emptyRecipesMessage.innerHTML = ''
-        populateRecipes(recipesFiltered)
+        populateRecipes([...recipesFiltered])
     }
-    
+    populateAllTags() 
 }
 
 function filterByText(text) { 
@@ -50,6 +53,64 @@ function filterByText(text) {
             {
                 filteredRecipesList.push(recipe)
             }
+        }
+    }
+    recipesFiltered = new Set(filteredRecipesList)
+}
+
+function filterByIngredients(ingredientsList){
+    if (!ingredientsList.length) return
+    const filteredRecipesList = []
+    for (let i= 0 ; i < recipesFiltered.size ; i++){
+        const recipe = Array.from(recipesFiltered)[i]
+        let isRecipeValid = true
+        const recipeIngredientsList = []
+        for (let i= 0 ; i < recipe.ingredients.length ; i++){
+            const ingredient = recipe.ingredients[i]
+            recipeIngredientsList.push(ingredient.ingredient)
+        }
+        for (let i = 0 ; i < ingredientsList.length ; i++){
+            const ingredient = ingredientsList[i];
+            if (!recipeIngredientsList.includes(ingredient)) isRecipeValid = false
+        }
+        if (isRecipeValid){
+            filteredRecipesList.push(recipe)
+        }
+    }
+    recipesFiltered = new Set(filteredRecipesList)
+}
+
+function filterByAppliances(appliancesList) {
+    if (!appliancesList.length) return
+    const filteredRecipesList = []
+    for (let i= 0 ; i < recipesFiltered.size ; i++){
+        const recipe = Array.from(recipesFiltered)[i]
+        let isRecipeValid = true
+        const recipesIngredientsList = []
+        if (appliancesList.includes(normalizeData(recipe.appliance))){
+            filteredRecipesList.push(recipe)
+        }
+    }
+    recipesFiltered = new Set(filteredRecipesList)
+}
+
+function filterByUstensils(ustensilsList) {
+    if (!ustensilsList.length) return
+    const filteredRecipesList = []
+    for (let i= 0 ; i < recipesFiltered.size ; i++){
+        const recipe = Array.from(recipesFiltered)[i]
+        let isRecipeValid = true
+        const recipeUstensilsList = []
+        for (let i= 0 ; i < recipe.ustensils.length ; i++){
+            const ustensil = recipe.ustensils[i]
+            recipeUstensilsList.push(normalizeData(ustensil))
+        }
+        for (let i = 0 ; i < ustensilsList.length ; i++){
+            const ustensil = ustensilsList[i];
+            if (!recipeUstensilsList.includes(ustensil)) isRecipeValid = false
+        }
+        if (isRecipeValid){
+            filteredRecipesList.push(recipe)
         }
     }
     recipesFiltered = new Set(filteredRecipesList)
