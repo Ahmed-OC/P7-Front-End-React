@@ -1,4 +1,5 @@
-const tagsButtons = document.querySelectorAll('.tags-btn')
+const tagsButtons = document.querySelectorAll('.tags-btn i')
+const autocompleteButtons = document.querySelectorAll('.tags-btn span')
 const tagsNameArray = ['ustensils', 'appliances', 'ingredients']
 const closeTagButtons = document.querySelectorAll('.tags-opened i')
 
@@ -28,10 +29,17 @@ for (let i = 0 ; i < closeTagButtons.length ; i++) {
         closeTag(closeTagButton.className.split(' ')[0].split('-')[1])
     })
 }
+for (let i = 0 ; i < autocompleteButtons.length ; i++){
+    const tagsButton = autocompleteButtons[i]
+    tagsButton.addEventListener('click' , function() {
+        openTag(tagsButton.className.split('-')[0],true)
+    })
+}
+
 for (let i = 0 ; i < tagsButtons.length ; i++){
     const tagsButton = tagsButtons[i]
     tagsButton.addEventListener('click' , function() {
-        openTag(tagsButton.className.split('-')[0])
+        openTag(tagsButton.className.split('-')[0],false)
     })
 }
 
@@ -40,7 +48,10 @@ const tagsItems = {
     ustensilsTagsItems: document.querySelector('.ustensils-opened .tags-items'),
     appliancesTagsItems: document.querySelector('.appliances-opened .tags-items')
 }
-function openTag(tag){
+function openTag(tag,autocomplete){
+    if (autocomplete === true) {
+        tagsItems[tag+'TagsItems'].innerHTML = ''
+    }
     for (let i = 0 ; i < tagsNameArray.length ; i++ ){
         const tagName = tagsNameArray[i]
         if (tagName !== tag) closeTag(tagName)
