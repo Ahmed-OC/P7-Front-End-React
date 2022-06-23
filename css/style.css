@@ -1,5 +1,5 @@
 *{
-    font-family: DM Sans;
+    font-family: Lato;
 }
 
 .logo {
@@ -49,16 +49,19 @@ button>span{
 .ingredients-btn {
     height: 70px;
     width: 170px;
+    padding: 0 30px 0 20px;
     background: #3282F7;
 }
 .appliances-btn {
     height: 70px;
     width: 170px;
+    padding: 0 30px 0 20px;
     background: #68D9A4;
 }
 .ustensils-btn {
     height: 70px;
     width: 170px;
+    padding: 0 30px 0 20px;
     background: #ED6454;
 }
 .tags-opened{
@@ -167,11 +170,55 @@ button>span{
 }
 
 .receipt-instructions {
+    font-family: 'Roboto';
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
 }
+.receipt-name {
+    max-width: 220px;
+}
 .card {
     height: 100%;
 }
+.card-body {
+    background-color: #E7E7E7;
+}
+
+@media (max-width:768px){
+    .tags-items{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 1199px) { 
+    .ingredients-btn {
+        height: 70px;
+        width: 100%;
+        background: #3282F7;
+    }
+    .appliances-btn {
+        width: 100%;
+        margin: 10px 0px !important;
+    }
+    .ustensils-btn {
+        height: 70px;
+        width: 100%;
+        background: #ED6454;
+    }
+    .tags-opened{
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        max-width: 100%;
+        min-height: 160px;
+    }
+    .tags-container {
+        position: relative;
+        padding: 0px!important;
+        margin: 0px;
+    }
+    #filters{
+        margin-bottom: 0px;
+    }
+ }

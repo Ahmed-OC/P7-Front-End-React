@@ -67,7 +67,7 @@ function closeTag(tag){
     const tagToHide = document.querySelector('.'+ tag + '-opened' )
     const buttonToShow = document.querySelector('.'+ tag + '-btn' )
     tagToHide.style.display = 'none'
-    buttonToShow.style.setProperty('display','block', 'important')
+    buttonToShow.style.setProperty('display','flex', 'important')
     tagsInput[tag].value = ''
     populateTagByText(tag)
 }
