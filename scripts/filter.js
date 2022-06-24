@@ -1,4 +1,5 @@
 const searchBar = document.querySelector('.search-bar') // Get the main search bar
+console.log('branch')
 const emptyRecipesMessage = document.getElementById('empty-recipes-message') // Get the fallback message section if no recipes match
 searchBar.addEventListener('input', (event) => {
     filters.textInputed = event.target.value
