@@ -47,8 +47,8 @@ function filterByText(text) {
 
 function filterByIngredients(ingredientsList){
     if (!ingredientsList.length) return
-    let filteredRecipesList = Array.from(recipesFiltered)
-    filteredRecipesList = filteredRecipesList.filter(recipe => {
+    // let filteredRecipesList = Array.from(recipesFiltered)
+    let filteredRecipesList = Array.from(recipesFiltered).filter(recipe => {
         const recipeIngredientsList = recipe.ingredients.map(i => i.ingredient.toLowerCase())
         return ingredientsList.every(x => recipeIngredientsList.includes(x.toLowerCase()))
     })
@@ -57,9 +57,7 @@ function filterByIngredients(ingredientsList){
 
 function filterByAppliances(appliancesList) {
     if (!appliancesList.length) return
-    let filteredRecipesList = Array.from(recipesFiltered)
-    filteredRecipesList = filteredRecipesList.filter(recipe => recipe.appliance.toLowerCase() === appliancesList[0].toLowerCase())
-    recipesFiltered = new Set(filteredRecipesList)
+    recipesFiltered = new Set(Array.from(recipesFiltered).filter(recipe => recipe.appliance.toLowerCase() === appliancesList[0].toLowerCase()))
 }
 
 function filterByUstensils(ustensilsList) {
